@@ -16,5 +16,29 @@ Create a homepage-first website experience that communicates Afro Arc as a multi
 - Clear brand positioning
 - Easy future expansion
 
+## Run Locally
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open `http://localhost:3000` in your browser.
+
+## Quality Checks
+Before pushing/deploying, run:
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
+
+## Environment Notes
+- This project is built with Next.js App Router + TypeScript + Tailwind CSS + Framer Motion.
+- Production metadata is configured for `https://www.afroarc.com`; update it in `app/layout.tsx` if the canonical domain changes.
+
 ## Notes for Codex
 Read all project documents in this repository before implementing anything.

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { MotionConfig, motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
 
 const pillars = [
   {
@@ -58,6 +59,8 @@ const showcases = [
   },
 ];
 
+const currentYear = new Date().getUTCFullYear();
+
 const riseIn = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
@@ -68,7 +71,7 @@ type SectionProps = {
   eyebrow: string;
   title: string;
   copy: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 function Section({ id, eyebrow, title, copy, children }: SectionProps) {
@@ -125,7 +128,8 @@ function FloatingAtmosphere() {
 
 export function Homepage() {
   return (
-    <main className="relative overflow-hidden bg-obsidian bg-arc-gradient">
+    <MotionConfig reducedMotion="user">
+      <main className="relative overflow-hidden bg-obsidian bg-arc-gradient">
       <FloatingAtmosphere />
       <div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(244,192,109,0.16),transparent_35%)]"
@@ -292,10 +296,11 @@ export function Homepage() {
 
       <footer className="border-t border-white/10">
         <div className="section-shell flex flex-col gap-4 py-10 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Afro Arc. All rights reserved.</p>
+          <p>© {currentYear} Afro Arc. All rights reserved.</p>
           <p>Mythic storytelling. Future media. Cultural signal.</p>
         </div>
       </footer>
-    </main>
+      </main>
+    </MotionConfig>
   );
 }
